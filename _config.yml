@@ -103,8 +103,8 @@ analytics:
 author:
   name             : "illdangag"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "**Dev** blog."
-  location         : "Korea"
+  bio              : "**Dev** blog"
+  location         : # "Korea"
   email            :
   links:
     - label: "Email"
@@ -121,7 +121,7 @@ author:
       # url: "https://facebook.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url: "https://github.com/"
+      url: "https://github.com/illdangag/"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
@@ -287,3 +287,4 @@ defaults:
       comments: # true
       share: true
       related: true
+      sidebar_main: true
