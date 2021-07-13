@@ -1,24 +1,18 @@
 <!--전체 글 수를 세기 위한 연산. sum 변수에 전체 글 수 저장-->
 {% assign sum = site.posts | size %}
 <nav class="nav__list">
-  <style>
-    .nav__items .nav_category_total > span {
-      font-size: 0.7rem;
-      line-height: 0.7rem;
-    }
-  </style>
   <!-- <input id="ac-toc" name="accordion-toc" type="checkbox" />
   <label for="ac-toc">{{ site.data.ui-text[site.locale].menu_label }}</label> -->
   <ul class="nav__items">
     <!-- 전체 글 수 -->
-    <li class="nav_category_total"><span>📚 전체 글 수 {{sum}} 개</span></li>
+    <li class="nav_category_total"><a href="/categories/">📚 전체 글 수 {{sum}} 개</a></li>
     <!-- HTML / CSS / Javascript-->
     <li>
       <span class="nav__sub-title">HTML/CSS/Javascript</span>
       <ul>
         {% for category in site.categories %}
           {% if category[0] == "HTML" %}
-            <li><a href="/categories/html" class="">HTML ({{category[1].size}})</a></li>
+            <li><a href="/categories/html">HTML ({{category[1].size}})</a></li>
           {% endif %}
         {% endfor %}
       </ul>
@@ -31,7 +25,7 @@
         <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
         {% for category in site.categories %}
           {% if category[0] == "Blog" %}
-            <li><a href="/categories/blog" class="">Blog ({{category[1].size}})</a></li>
+            <li><a href="/categories/blog">Blog ({{category[1].size}})</a></li>
           {% endif %}
         {% endfor %}
       </ul>

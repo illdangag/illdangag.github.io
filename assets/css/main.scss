@@ -37,6 +37,30 @@ $sans-serif: 'Noto Sans KR', 'Roboto';
   }
 }
 
+.page__inner-wrap header .page__date {
+  color: #646769;
+  font-size: 18px;
+  @media screen and (max-width: 80em) {
+    font-size: 16px;
+  }
+  @media screen and (max-width: 64em) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 48em) {
+    font-size: 10px;
+  }
+}
+
+.nav__list .nav__items .nav_category_total > a  {
+  font-size: 0.7rem;
+  line-height: 0.7rem;
+}
+
+.author__urls-wrapper .author__urls {
+  font-size: 18px;
+}
+
+// 웹뷰의 가로 길이가 변경되는 경우 애니메이션 처리 삭제
 b, i, strong, em, blockquote, p, q, span, figure, img, h1, h2, header, input, a, tr, td, form button, input[type="submit"], .btn, .highlight, .archive__item-teaser {
   -webkit-transition: none;
   transition: none;
