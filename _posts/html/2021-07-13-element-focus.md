@@ -30,4 +30,5 @@ last_modified_at: 2021-07-13
 
 `tabindex`에 -1로 설정한 요소는 `focus`와 `blur` CSS 및 Javascript 이벤트가 동작하지만, `tabindex`에 값을 설정하지 않은 요소는 이벤트가 동작하지 않는다
 
-- [참고 페이지 - developers.google.com](https://developers.google.com/web/fundamentals/accessibility/focus/using-tabindex?hl=ko)
+### 참고 페이지
+- [developers.google.com](https://developers.google.com/web/fundamentals/accessibility/focus/using-tabindex?hl=ko)

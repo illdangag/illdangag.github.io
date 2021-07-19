@@ -37,5 +37,6 @@ http {
 `nginx.conf` 파일에 위와 같이 설정
 필요에 따라 `server_names_hash_bucket_size`값을 `64` 이상으로 설정
 
-- [참고 페이지 - stackoverflow.com](https://stackoverflow.com/questions/13895933/nginx-emerg-could-not-build-the-server-names-hash-you-should-increase-server)
-- [참고 페이지 - nginx document](http://nginx.org/en/docs/http/server_names.html#optimization)
+### 참고 페이지
+- [stackoverflow.com](https://stackoverflow.com/questions/13895933/nginx-emerg-could-not-build-the-server-names-hash-you-should-increase-server)
+- [nginx document](http://nginx.org/en/docs/http/server_names.html#optimization)
