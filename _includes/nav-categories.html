@@ -17,6 +17,17 @@
         {% endfor %}
       </ul>
     </li>
+    <!-- server -->
+    <li>
+      <span class="nav__sub-title">Server</span>
+      <ul>
+        {% for category in site.categories %}
+          {% if category[0] == "nginx" %}
+            <li><a href="/categories/nginx">nginx ({{category[1].size}})</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </li>
     <!-- Blog -->
     <li>
       <span class="nav__sub-title">Blog</span>
