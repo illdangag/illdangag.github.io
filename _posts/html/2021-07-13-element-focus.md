@@ -14,7 +14,7 @@ tags:
   - Javascript
 
 date: 2021-07-13T00:00:00+09:00
-last_modified_at: 2021-07-13
+last_modified_at: 2021-07-13T00:00:00+09:00
 ---
 
 `focus`와 `blur` 이벤트는 `input` 또는 `button` 요소에서 동작하지만, 경우에 따라 일반적인 `span` 요소나 `div`, `p` 요소에서 사용 해야 하는 경우가 있다

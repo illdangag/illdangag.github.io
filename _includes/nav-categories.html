@@ -6,9 +6,8 @@
   <ul class="nav__items">
     <!-- 전체 글 수 -->
     <li class="nav_category_total"><a href="/categories/">📚 전체 글 수 {{sum}} 개</a></li>
-    <!-- HTML / CSS / Javascript-->
     <li>
-      <span class="nav__sub-title">HTML/CSS/Javascript</span>
+      <span class="nav__sub-title">Frontend</span>
       <ul>
         {% for category in site.categories %}
           {% if category[0] == "HTML" %}
@@ -17,7 +16,16 @@
         {% endfor %}
       </ul>
     </li>
-    <!-- server -->
+    <li>
+      <span class="nav__sub-title">Javascript</span>
+      <ul>
+        {% for category in site.categories %}
+          {% if category[0] == "Nodejs" %}
+            <li><a href="/categories/nodejs">nodejs ({{category[1].size}})</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </li>
     <li>
       <span class="nav__sub-title">Server</span>
       <ul>
@@ -28,7 +36,6 @@
         {% endfor %}
       </ul>
     </li>
-    <!-- Blog -->
     <li>
       <span class="nav__sub-title">Blog</span>
       <ul>

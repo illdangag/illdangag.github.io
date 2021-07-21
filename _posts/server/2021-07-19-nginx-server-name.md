@@ -10,9 +10,10 @@ categories:
   - nginx
 tags:
   - nginx
+  - conf
 
 date: 2021-07-19T00:00:00+09:00
-last_modified_at: 2021-07-19
+last_modified_at: 2021-07-19T00:00:00+09:00
 ---
 
 # nginx 시작시 오류 메시지
