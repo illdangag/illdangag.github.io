@@ -7,9 +7,9 @@ title:  "[nginx][emerg] could not build server_names_hash"
 classes:
   - wide
 categories:
-  - nginx
+  - Nginx
 tags:
-  - nginx
+  - Nginx
   - conf
 
 date: 2021-07-19T00:00:00+09:00

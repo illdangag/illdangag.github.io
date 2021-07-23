@@ -17,11 +17,18 @@
       </ul>
     </li>
     <li>
-      <span class="nav__sub-title">Javascript</span>
+      <span class="nav__sub-title">Language</span>
       <ul>
         {% for category in site.categories %}
           {% if category[0] == "Nodejs" %}
-            <li><a href="/categories/nodejs">nodejs ({{category[1].size}})</a></li>
+            <li><a href="/categories/nodejs">Nodejs ({{category[1].size}})</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+      <ul>
+        {% for category in site.categories %}
+          {% if category[0] == "Java" %}
+            <li><a href="/categories/java">Java ({{category[1].size}})</a></li>
           {% endif %}
         {% endfor %}
       </ul>
@@ -30,8 +37,8 @@
       <span class="nav__sub-title">Server</span>
       <ul>
         {% for category in site.categories %}
-          {% if category[0] == "nginx" %}
-            <li><a href="/categories/nginx">nginx ({{category[1].size}})</a></li>
+          {% if category[0] == "Nginx" %}
+            <li><a href="/categories/nginx">Nginx ({{category[1].size}})</a></li>
           {% endif %}
         {% endfor %}
       </ul>
