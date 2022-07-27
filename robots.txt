@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://illdangag.github.io/sitemap.xml
