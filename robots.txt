@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /google6132c5aca50b5e12.html
+Disallow: /naver534fea6eac37b0bad3bd9987f44756c1.html
+
+Sitemap: https://illdangag.github.io/sitemap.xml

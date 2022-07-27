@@ -3,6 +3,9 @@
 search: false
 ---
 
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans+KR|Ubuntu+Mono);
+$sans-serif: 'Noto Sans KR', 'Roboto';
+
 @charset "utf-8";
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
