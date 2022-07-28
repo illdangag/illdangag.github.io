@@ -7,7 +7,7 @@ classes:
   - wide
 
 categories:
-  - blog
+  - Blog
 
 tags:
   - Blog

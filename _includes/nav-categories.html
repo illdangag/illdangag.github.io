@@ -1,0 +1,59 @@
+<!--전체 글 수를 세기 위한 연산. sum 변수에 전체 글 수 저장-->
+{% assign sum = site.posts | size %}
+<nav class="nav__list">
+  <!-- <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">{{ site.data.ui-text[site.locale].menu_label }}</label> -->
+  <ul class="nav__items">
+    <!-- 전체 글 수 -->
+    <li class="nav_category_total"><a href="/categories/">📚 {{sum}} total posts</a></li>
+    <li>
+      <span class="nav__sub-title">Frontend</span>
+      <ul>
+        {% for category in site.categories %}
+        {% if category[0] == "HTML" %}
+        <li><a href="/categories/html">HTML ({{category[1].size}})</a></li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </li>
+    <li>
+      <span class="nav__sub-title">Language</span>
+      <ul>
+        {% for category in site.categories %}
+        {% if category[0] == "Nodejs" %}
+        <li><a href="/categories/nodejs">Nodejs ({{category[1].size}})</a></li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+      <ul>
+        {% for category in site.categories %}
+        {% if category[0] == "Java" %}
+        <li><a href="/categories/java">Java ({{category[1].size}})</a></li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </li>
+    <li>
+      <span class="nav__sub-title">Server</span>
+      <ul>
+        {% for category in site.categories %}
+        {% if category[0] == "Nginx" %}
+        <li><a href="/categories/nginx">Nginx ({{category[1].size}})</a></li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </li>
+    <li>
+      <span class="nav__sub-title">Blog</span>
+      <ul>
+        <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/cpp 주소의 글로 링크 연결-->
+        <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시-->
+        {% for category in site.categories %}
+        {% if category[0] == "Blog" %}
+        <li><a href="/categories/blog">Blog ({{category[1].size}})</a></li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </li>
+  </ul>
+</nav>

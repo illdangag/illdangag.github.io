@@ -5,7 +5,7 @@ classes:
   - wide
 
 categories:
-  - blog
+  - HTML
 
 tags:
   - HTML

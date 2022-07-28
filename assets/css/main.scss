@@ -10,3 +10,67 @@ $sans-serif: 'Noto Sans KR', 'Roboto';
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+.masthead {
+  &__inner-wrap {
+    padding: 0.6em;
+  }
+
+  .masthead__menu-item {
+    font-size: 18px;
+  }
+}
+
+.greedy-nav .visible-links a:before {
+  display: none;
+}
+
+.page__footer {
+  footer {
+    margin: 1em auto 0 auto;
+    padding: 0 1em 1em 1em;
+
+    .page__footer-follow {
+      strong, a {
+        font-weight: unset;
+      }
+    }
+  }
+}
+
+.page__inner-wrap header .page__date {
+  color: #646769;
+  font-size: 18px;
+  @media screen and (max-width: 80em) {
+    font-size: 16px;
+  }
+  @media screen and (max-width: 64em) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 48em) {
+    font-size: 10px;
+  }
+}
+
+.nav__list .nav__items .nav_category_total > a  {
+  font-size: 0.7rem;
+  line-height: 0.7rem;
+}
+
+.author__urls-wrapper .author__urls {
+  font-size: 18px;
+}
+
+.page__content {
+  font-size: 20px;
+}
+
+.archive {
+  font-size: 18px;
+  @media (min-width: 80em) {
+    padding-right: unset;
+  }
+  @media (min-width: 64em) {
+    padding-right: unset;
+  }
+}
