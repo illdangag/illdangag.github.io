@@ -26,15 +26,14 @@ last_modified_at: 2021-07-13T00:00:00+09:00
 
 그런 경우에는 요소에 `tabindex`를 추가하면 `focus`와 `blur` 이벤트를 사용 할 수 있다
 
-
-<iframe
-src="https://codesandbox.io/embed/elementfocus-47dmp?fontsize=14&hidenavigation=1&theme=dark"
+<div>
+<iframe src="https://codesandbox.io/embed/elementfocus-47dmp?fontsize=14&hidenavigation=1&theme=dark"
 style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
 title="element_focus"
 allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
 sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-/>
-
+></iframe>
+</div>
 
 `tabindex`에 -1로 설정한 요소는 `focus`와 `blur` CSS 및 Javascript 이벤트가 동작하지만, `tabindex`에 값을 설정하지 않은 요소는 이벤트가 동작하지 않는다
 
