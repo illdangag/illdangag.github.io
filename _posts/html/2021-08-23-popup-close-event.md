@@ -2,15 +2,15 @@
 title: "[HTML]팝업 윈도우 닫힘 이벤트"
 
 classes:
-  - wide
+- wide
 
 categories:
-  - HTML
+- HTML
 
 tags:
-  - HTML
-  - CSS
-  - Javascript
+- HTML
+- CSS
+- Javascript
 
 toc: false
 

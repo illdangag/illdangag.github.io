@@ -2,15 +2,15 @@
 title: "[HTML]tabindex를 이용하여 foucs/blur 이벤트 동작"
 
 classes:
-  - wide
+- wide
 
 categories:
-  - HTML
+- HTML
 
 tags:
-  - HTML
-  - CSS
-  - Javascript
+- HTML
+- CSS
+- Javascript
 
 toc: false
 

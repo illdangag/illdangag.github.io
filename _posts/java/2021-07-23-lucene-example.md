@@ -22,8 +22,7 @@ last_modified_at: 2021-07-23T00:00:00+09:00
 
 ---
 
-검색 엔진으로 많이 사용되고 있는 lucene에 대한 간단 예제이다
-
+검색 엔진으로 많이 사용되고 있는 lucene에 대한 간단 예제이다  
 프로젝트는 Gradle, 언어는 Java로 작성 하였다
 
 ```groovy
@@ -34,7 +33,7 @@ dependencies {
     implementation group: 'org.apache.lucene', name: 'lucene-analyzers-common', version: '8.9.0'
 }
 ```
-build.gradle 파일의 dependencies에 lucene 라이브러리 두가지를 추가한다
+build.gradle 파일의 dependencies에 lucene 라이브러리 두가지를 추가한다  
 사용 가능한 버전의 목록은 [mvnrepository.com](https://mvnrepository.com/)에서 라이브러리 이름으로 검색한다
 
 ```java
@@ -74,6 +73,7 @@ import org.apache.lucene.store.FSDirectory;
 import java.io.File;
 import java.util.Arrays;
 import java.util.List;
+
 public class IndexMain {
     public static void main(String[] args) throws Exception {
         File indexDirectory = new File("index"); // 인덱싱 파일이 저장될 디렉토리 경로
@@ -110,6 +110,7 @@ import org.apache.lucene.search.*;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import java.io.File;
+
 public class SearchMain {
     public static void main(String[] args) throws Exception {
         File indexDirectory = new File("index");
@@ -134,11 +135,11 @@ public class SearchMain {
 count : 1
  - id : id1
 ```
-인덱싱 결과에 대해서 `name`이 `이름1`이면서 `age`가 `31`인 문서를 조회 한다
-
+인덱싱 결과에 대해서 `name`이 `이름1`이면서 `age`가 `31`인 문서를 조회 한다  
 검색된 문서의 수와 문서의 id인 `id1`이 출력된다
 
-조건이 AND가 아니고 OR이거나 NOT인 경우 `BooleanQuery`의 조합을 `BooleanClause.Occur.SHOULD`이거나 `BooleanClause.Occur.MUST_NOT`으로 적절하게 조합하여 쿼리를 만든다
+조건이 AND가 아니고 OR이거나 NOT인 경우 `BooleanQuery`의 조합을 `BooleanClause.Occur.SHOULD`이거나  
+`BooleanClause.Occur.MUST_NOT`으로 적절하게 조합하여 쿼리를 만든다
 
 ```java
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
@@ -148,6 +149,7 @@ import org.apache.lucene.index.Term;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import java.io.File;
+
 public class UpdateMain {
     public static void main(String[] args) throws Exception {
         File indexDirectory = new File("index");
@@ -159,11 +161,12 @@ public class UpdateMain {
     }
 }
 ```
-```
+
+```text
 count : 0
 ```
-생성된 인덱스에서 `id`가 `id1`인 문서를 삭제한다
 
+생성된 인덱스에서 `id`가 `id1`인 문서를 삭제한다  
 그 후에 검색 코드를 다시 실행하면 검색 결과가 0이다
 
 ### 참고 페이지
