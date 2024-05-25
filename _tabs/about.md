@@ -4,5 +4,9 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-> Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
+> 직장인이 아닌 개발자
 {: .prompt-tip }
+
+## Tech Stack
+
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=illdangag&layout=compact)](https://github.com/anuraghazra/github-readme-stats)
