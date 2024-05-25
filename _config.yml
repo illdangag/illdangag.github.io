@@ -119,13 +119,13 @@ comments:
   giscus:
     repo: illdangag/illdangag.github.io
     repo_id: R_kgDOMAc59g
-    category: giscus
-    category_id: 41839660
-    mapping: # optional, default to 'pathname'
-    strict: # optional, default to '0'
-    input_position: # optional, default to 'bottom'
+    category: giscus-comment
+    category_id: DIC_kwDOMAc59s4Cfmws
+    mapping: pathname # optional, default to 'pathname'
+    strict: 0 # optional, default to '0'
+    input_position: bottom # optional, default to 'bottom'
     lang: # optional, default to the value of `site.lang`
-    reactions_enabled: # optional, default to the value of `1`
+    reactions_enabled: 1 # optional, default to the value of `1`
 
 # Self-hosted static assets, optional › https://github.com/cotes2020/chirpy-static-assets
 assets:
