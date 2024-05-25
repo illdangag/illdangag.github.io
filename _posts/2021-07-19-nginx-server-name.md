@@ -32,4 +32,4 @@ http {
 
 ## 참고 페이지
 - [stackoverflow.com](https://stackoverflow.com/questions/13895933/nginx-emerg-could-not-build-the-server-names-hash-you-should-increase-server)
-- [nginx document](http://nginx.org/en/docs/http/server_names.html#optimization)
+- [nginx document](https://nginx.org/en/docs/http/server_names.html#optimization)
