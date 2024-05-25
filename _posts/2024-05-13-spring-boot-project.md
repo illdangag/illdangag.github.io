@@ -54,11 +54,6 @@ spring web(spring-boot-stater-web) 종속성 라이브러리를 추가한 후 ex
 ![spring-boot-project-04](/assets/img/post/2024-05-13/spring-boot-project-04.png)
 ![spring-boot-project-05](/assets/img/post/2024-05-13/spring-boot-project-05.png)
 
-<figure class="half">
-  <a href="link"><img src="/assets/img/post/2024-05-13/spring-boot-project-04.png"></a>
-  <a href="link"><img src="/assets/img/post/2024-05-13/spring-boot-project-04.png"></a>
-<figcaption>2개이미지.</figcaption></figure>
-
 프로젝트의 java 버전을 spring boot 프로젝트 생성시 설정한 java 버전과 동일한 버전으로 설정한다
 
 ![spring-boot-project-06](/assets/img/post/2024-05-13/spring-boot-project-06.png)
