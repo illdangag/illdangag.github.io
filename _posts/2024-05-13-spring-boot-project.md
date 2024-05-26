@@ -1,6 +1,6 @@
 ---
 title: "Spring boot 프로젝트 생성"
-description: ''
+description: 'start.spring.io 페이지에서 spring boot 프로젝트 생성 및 기본 종속성 목록 추가'
 author: illdangag
 
 # permalink: thread-pool
