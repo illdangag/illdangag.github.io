@@ -10,3 +10,6 @@ order: 4
 ## Tech Stack
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=illdangag&layout=compact)](https://github.com/anuraghazra/github-readme-stats)
+
+## Contributions in the last year
+[![github](https://ghchart.rshah.org/illdangag)](https://github.com/illdangag)
