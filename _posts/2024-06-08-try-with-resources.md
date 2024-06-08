@@ -1,6 +1,6 @@
 ---
 title: "try-with-resources 자원 해제 처리"
-description: ""
+description: "리소스 처리와 try-catch-finally 구문, try-with-resources 구문의 차이, 그리고 리소스에 대한 예외 처리 "
 author: illdangag
 
 # permalink: docker
@@ -10,6 +10,10 @@ last_modified_at: 2024-06-08T15:36:00+09:00
 categories: [Java, Try with resources]
 tags: [Java, Try with resources]
 ---
+
+예제에 사용된 소스 코드는 하단의 Repository 링크를 참고하면 된다
+
+- [illdangag/gitbook-code - try catch resources](https://github.com/illdangag/gitbook-code/tree/main/try-catch-resources)
 
 ## 리소스
 
