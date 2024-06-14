@@ -97,3 +97,33 @@ FFmpeg의 최신 빌드 ZIP 파일을 다운로드 한다
   - 값의 범위는 0에서 10
   - 0에 가까울수록 음원이 높은 품질
   - 기본값은 4
+
+### 스크린샷 추출
+
+```shell
+./ffmpeg \
+  -i sample.mp4 \
+  -ss 00:00:00 \
+  -vframes 10 \
+  thumnail_%d.png
+
+```
+{:file='screenshot png'}
+
+- `-ss` 옵션은 스크린샷의 기준 시간
+- `-vframes` 옵션은 스크린샷 개수
+
+```shell
+./ffmpeg \
+  -i sample.mp4 \
+  -ss 00:00:00 \
+  -vframes 10 \
+  thumnail_%d.gif
+
+```
+{:file='screenshot gif'}
+
+스크린샷을 gif 형식으로 추출하며 `-vframes` 옵션에 따라 10 프레임으로 구성된 gi가 생성된다
+
+### 비디오 인코딩
+
