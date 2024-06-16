@@ -11,6 +11,16 @@ categories: [FFmpeg]
 tags: [FFmpeg]
 ---
 
+모든 비디오, 오디오, 이미지 포멧에 대한 디코딩 인코딩을 목표로 진행되고 있는 오픈소스 포로젝트이다
+
+- [FFmpeg](https://ffmpeg.org/)
+
+FFmpeg의 구체적인 사용법이나 특정 인코딩 관련 링크는 아래 링크를 확인해 본다
+
+- [FFmpeg 옵션](https://ffmpeg.org/ffmpeg.html)
+- [trac wiki - FFmpeg mp3 변환](https://trac.ffmpeg.org/wiki/Encode/MP3)
+- [trac wiki - FFmpeg H.264 변환](https://trac.ffmpeg.org/wiki/Encode/H.264)
+
 ## 다운로드 및 설치
 
 - [ffmpeg.org/download.html](https://ffmpeg.org/download.html)
