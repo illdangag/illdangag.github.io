@@ -138,7 +138,6 @@ FFmpeg의 최신 빌드 ZIP 파일을 다운로드 한다
 비디오 파일에서 mp3, wav, ogg 등 오디오 음원을 추출 할 수 있다
 
 ```shell
-# mp3 오디오 음원 추출
 ./ffmpeg \
   -i ./sample.mp4 \
   output.mp3
@@ -148,7 +147,6 @@ FFmpeg의 최신 빌드 ZIP 파일을 다운로드 한다
 출력 파일의 확장자가 `mp3`이므로 원본 영상의 오디오가 mp3 파일을 추출한다
 
 ```shell
-# wav 오디오 음원 추출
 ./ffmpeg \
   -i ./sample.mp4 \
   output.wav
@@ -158,7 +156,6 @@ FFmpeg의 최신 빌드 ZIP 파일을 다운로드 한다
 출력 파일의 확장자가 `wav`이므로 원본 영상의 오디오가 wav 파일을 추출한다
 
 ```shell
-# ogg 오디오 음원 추출
 ./ffmpeg \
   -i ./sample.mp4 \
   output.ogg
@@ -230,7 +227,7 @@ FFmpeg의 최신 빌드 ZIP 파일을 다운로드 한다
 ```
 {:file='video codec xvid'}
 
-`-c:v` 옵션에 libxvid 설정하여 libxvid 포맷으로 인코딩 하도록 설정하여 avi 파일을 생성한다
+`-c:v` 옵션에 libxvid 설정하여 xvid 포맷으로 인코딩 하도록 설정하여 avi 파일을 생성한다
 
 #### 특정 기간의 비디오 추출
 
