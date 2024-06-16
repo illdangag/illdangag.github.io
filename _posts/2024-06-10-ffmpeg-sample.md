@@ -80,7 +80,16 @@ FFmpeg의 최신 빌드 ZIP 파일을 다운로드 한다
 ### 위치 및 시간
 
 - `-ss`  
-  원본 파일의 시간 위치
+  원본 파일의 시작 시간 위치
+
+- `-to`  
+  원본 파일의 종료 시간 위치
+
+- `-t`  
+  `-ss` 옵션인 원본 파일의 시작 시간으로부터 지난 시간 만큼 종료 시간을 설정 
+
+- `-frames:v`  
+  출력 파일에 대한 프레임 수
 
 ## FFmpeg 예제
 
@@ -90,28 +99,28 @@ FFmpeg의 최신 빌드 ZIP 파일을 다운로드 한다
 ./ffmpeg \
   -i sample.mp4 \
   -ss 00:00:00 \
-  -vframes 10 \
+  -frames:v 10 \
   thumnail_%d.png
 ```
 {:file='screenshot png'}
 
-- `-ss` 옵션은 스크린샷의 기준 시간
-- `-vframes` 옵션은 스크린샷 개수
+`-ss` 옵션으로 시작 시간을 설정하고 `-frames:v` 옵션으로 10 프레임을 설정  
+출력 파일의 확장자가 `png`이므로 영상의 시간이 00:00:00 부터 10 프레임을 png 파일이 10개가 생성된다
+
 
 ```shell
 ./ffmpeg \
   -i sample.mp4 \
-  -ss 00:00:00 \
-  -vframes 10 \
-  thumnail_%d.gif
+  -ss 00:00:10 \
+  -t 00:00:05 \
+  thumnail.gif
 ```
 {:file='screenshot gif'}
 
-스크린샷을 gif 형식으로 추출하며 `-vframes` 옵션에 따라 10 프레임으로 구성된 gif 파일이 생성된다
+`-ss` 옵션으로 시작 시간을 설정하고 `-t` 옵션으로 시작 시간으로부터 5초 동안을 편집 구간으로 설정  
+출력 파일의 확장자가 `gif`이므로 시간이 5초인 gif 파일이 1개 생성 된다
 
 ### 비디오 파일에서 오디오 음원 추출
-
-`sample.mp4` 이름의 샘플 비디오 파일을 준비 한다
 
 #### 오디오 포멧
 
@@ -121,42 +130,51 @@ FFmpeg의 최신 빌드 ZIP 파일을 다운로드 한다
 # mp3 오디오 음원 추출
 ./ffmpeg \
   -i ./sample.mp4 \
-  -f mp3 \
   output.mp3
 ```
 {:file='extract mp3 audio'}
+
+출력 파일의 확장자가 `mp3`이므로 원본 영상의 오디오가 mp3 파일을 추출한다
 
 ```shell
 # wav 오디오 음원 추출
 ./ffmpeg \
   -i ./sample.mp4 \
-  -f wav \
   output.wav
 ```
 {:file='extract wav audio'}
+
+출력 파일의 확장자가 `wav`이므로 원본 영상의 오디오가 wav 파일을 추출한다
 
 ```shell
 # ogg 오디오 음원 추출
 ./ffmpeg \
   -i ./sample.mp4 \
-  -f ogg \
   output.ogg
 ```
 {:file='extract ogg audio'}
 
-각각 mp3, wav, ogg 포멧으로 음원을 추출한다
+출력 파일의 확장자가 `ogg`이므로 원본 영상의 오디오가 ogg 파일을 추출한다
 
+#### 특정 구간의 오디오 추출
+
+```shell
+./ffmpeg \
+  -i sample.mp4 \
+  -ss 00:00:05 \
+  -to 00:00:10 \
+  output.mp3
+```
+
+`-ss` 옵션으로 시작 시간을 설정  
+`-to` 옵션으로 종료 시간을 설정  
+5초의 길이를 가진 mp3 파일을 생성한다
 
 #### 오디오 샘플레이트 및 비트레이트
 
-샘플레이트 및 가변 또는 고정 비트레이트 설정 할 수 있다
-
 ```shell
-# 44100 샘플레이트
-# 320k 가변 비트레이트
 ./ffmpeg \
   -i sample.mp4 \
-  -f mp3 \
   -ar 44100 \
   -b:a 320k \
   -q:a 4 \
@@ -164,5 +182,6 @@ FFmpeg의 최신 빌드 ZIP 파일을 다운로드 한다
 ```
 {:file='sample rate, bit rate'}
 
-### 비디오 인코딩
-
+`-ar` 옵션에 44100으로 설정하여 출력하는 오디오 셈플레이트를 44100Hz로 설정  
+`-b:a` 옵션에 320k를 설정하여 오디오 비트레이는 320k로 설정  
+`-q:a` 옵션에 4를 설정하여 오디오의 가변 비트레이트의 품질을 중간으로 설정하여 mp3 파일을 생성한다
