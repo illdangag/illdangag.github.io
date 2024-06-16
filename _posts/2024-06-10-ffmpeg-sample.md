@@ -11,15 +11,16 @@ categories: [FFmpeg]
 tags: [FFmpeg]
 ---
 
-모든 비디오, 오디오, 이미지 포멧에 대한 디코딩 인코딩을 목표로 진행되고 있는 오픈소스 포로젝트이다
+FFmpeg는 모든 비디오, 오디오, 이미지 포멧에 대한 디코딩 인코딩을 목표로 진행되고 있는 오픈소스 포로젝트이다
 
 - [FFmpeg](https://ffmpeg.org/)
 
 FFmpeg의 구체적인 사용법이나 특정 인코딩 관련 링크는 아래 링크를 확인해 본다
 
 - [FFmpeg 옵션](https://ffmpeg.org/ffmpeg.html)
-- [trac wiki - FFmpeg mp3 변환](https://trac.ffmpeg.org/wiki/Encode/MP3)
-- [trac wiki - FFmpeg H.264 변환](https://trac.ffmpeg.org/wiki/Encode/H.264)
+- [trac wiki - FFmpeg mp3](https://trac.ffmpeg.org/wiki/Encode/MP3)
+- [trac wiki - FFmpeg H.264](https://trac.ffmpeg.org/wiki/Encode/H.264)
+- [trac wiki - FFmpeg AV1](https://trac.ffmpeg.org/wiki/Encode/AV1)
 
 ## 다운로드 및 설치
 
@@ -175,10 +176,11 @@ FFmpeg의 최신 빌드 ZIP 파일을 다운로드 한다
   -to 00:00:10 \
   output.mp3
 ```
+{:file='start end'}
 
 `-ss` 옵션으로 시작 시간을 설정  
 `-to` 옵션으로 종료 시간을 설정  
-5초의 길이를 가진 mp3 파일을 생성한다
+원본 파일의 5초부터 10초 구간에 대한 5초의 길이를 가진 mp3 파일을 생성한다
 
 #### 오디오 샘플레이트 및 비트레이트
 
@@ -195,3 +197,122 @@ FFmpeg의 최신 빌드 ZIP 파일을 다운로드 한다
 `-ar` 옵션에 44100으로 설정하여 출력하는 오디오 셈플레이트를 44100Hz로 설정  
 `-b:a` 옵션에 320k를 설정하여 오디오 비트레이는 320k로 설정  
 `-q:a` 옵션에 4를 설정하여 오디오의 가변 비트레이트의 품질을 중간으로 설정하여 mp3 파일을 생성한다
+
+### 비디오 파일 인코딩
+
+#### 비디오 포맷
+
+```shell
+./ffmpeg \
+  -i sample.mp4 \
+  -c:v libx264 \
+  output.mp4
+```
+{:file='video codec h264'}
+
+`-c:v` 옵션에 libx264으로 설정하여 h264 포맷으로 인코딩 하도록 설정하여 mp4 파일을 생성한다
+
+```shell
+./ffmpeg \
+  -i sample.mp4 \
+  -c:v mpeg2video \
+  output.avi
+```
+{:file='video codec mpeg2'}
+
+`-c:v` 옵션에 mpeg2 설정하여 mpeg2 포맷으로 인코딩 하도록 설정하여 avi 파일을 생성한다
+
+```shell
+./ffmpeg \
+  -i sample.mp4 \
+  -c:v libxvid \
+  output.avi
+```
+{:file='video codec xvid'}
+
+`-c:v` 옵션에 libxvid 설정하여 libxvid 포맷으로 인코딩 하도록 설정하여 avi 파일을 생성한다
+
+#### 특정 기간의 비디오 추출
+
+```shell
+./ffmpeg \
+  -i sample.mp4 \
+  -c:v libx264 \
+  -ss 00:00:05 \
+  -to 00:00:10 \
+  output.mp4
+```
+{:file='video codec h264 start end'}
+
+`-c:v` 옵션에 libx264으로 설정하여 h264 포맷으로 인코딩 하도록 설정하고  
+`-ss` 옵션으로 시작 시간을 설정  
+`-to` 옵션으로 종료 시간을 설정  
+원본 파일의 5초부터 10초 구간에 대한 5초의 길이를 가진 mp4 파일을 생성한다
+
+#### 비디오의 비트레이트와 오디오 샘플레이트 및 비트레이트
+
+```shell
+./ffmpeg \
+  -i sample.mp4 \
+  -c:v libx264 \
+  -b:v 2000k \
+  -c:a aac \
+  -ar 44100 \
+  -b:a 128k \
+  output.mp4
+```
+{:file='video codec h264 bitrate'}
+
+`-c:v` 옵션에 libx264으로 설정하여 h264 포맷으로 인코딩 하도록 설정  
+`-b:v` 옵션에 2000k으로 비트레이트가 2000k으로 설정하여 mp4 파일을 생성  
+`-c:a` 옵션에 aac로 설정하여 aac 오디오 코덱을 사용하도록 설정  
+`-ar` 옵션에 44100으로 설정하여 출력하는 오디오 셈플레이트를 44100Hz로 설정  
+`-b:a` 옵션에 128k를 설정하여 오디오 비트레이는 128k로 설정하여 mp4 파일을 생성한다
+
+#### h.264 포맷의 two pass 인코딩
+
+- [trac wiki - FFmpeg h.264 two pass](https://trac.ffmpeg.org/wiki/Encode/H.264#twopass)
+
+고정 비트레이트인 CBR, 가변 비트레이트인 VBR과 다르게 두번의 인코딩 과정으로 첫번째 인코딩 과정에서 원본 파일을 분석하고 두번째 인코딩 과정에서 분석 결과를 바탕으로 효율적으로 가변 비트레이트를 지정 할 수 있는 방법이다
+
+```shell
+./ffmpeg \
+  -i sample.mp4 \
+  -c:v libx264 \
+  -b:v 2000k \
+  -pass 1 \
+  -an \
+  -f null /dev/null \
+  && \
+./ffmpeg \
+  -i sample.mp4 \
+  -c:v libx264 \
+  -b:v 2000k \
+  -pass 2 \
+  -c:a aac \
+  -ar 44100 \
+  -b:a 128k \
+  output.mp4
+```
+{:file='video codec h264 two pass'}
+
+**첫번째 ffmpeg 명령줄**
+
+`-c:v` 옵션에 libx264으로 설정하여 h264 포맷으로 인코딩 하도록 설정  
+`-b:v` 옵션에 2000k으로 비트레이트가 2000k으로 설정  
+`-pass` 옵션에 1로 설정하여 two pass 설정의 첫번째 인코딩 과정임을 설정  
+`-an` 옵션으로 오디오는 처리하지 않음을 설정, 비디오만 처리 하기 위함  
+`-f` 옵션에 null /dev/null로 설정하여 출력 동영상 파일이 생성되지 않게 설정
+
+첫번째 ffmpeg 명령줄을 실행하면 원본 파일의 분석 결과에 대한 log, mbtree 파일을 생성한다
+
+**두번째 ffmpeg 명령줄**
+
+`-c:v` 옵션에 libx264으로 설정하여 h264 포맷으로 인코딩 하도록 설정  
+`-b:v` 옵션에 2000k으로 비트레이트가 2000k으로 설정  
+`-pass` 옵션에 2로 설정하여 two pass 설정의 두번째 인코딩 과정임을 설정  
+`-c:a` 옵션에 aac로 설정하여 aac 오디오 코덱을 사용하도록 설정  
+`-ar` 옵션에 44100으로 설정하여 출력하는 오디오 셈플레이트를 44100Hz로 설정  
+`-b:a` 옵션에 128k를 설정하여 오디오 비트레이는 128k로 설정하여 mp4 파일을 생성한다
+
+두번째 ffmpeg 명령줄을 실행하면 첫번째 ffmpeg 명령줄에서 생성된 분석 결과를 토대로 mp4 파일을 생성한다
