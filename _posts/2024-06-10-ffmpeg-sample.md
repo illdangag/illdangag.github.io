@@ -26,13 +26,13 @@ FFmpeg의 구체적인 사용법이나 특정 인코딩 관련 링크는 아래 
 
 - [ffmpeg.org/download.html](https://ffmpeg.org/download.html)
 
-<img src="/assets/img/post/2024-06-10/ffmpeg-sample-00.png" width="480px">
+<img src="/assets/img/post/2024-06-10/ffmpeg-sample-00.png" width="480px" alt="ffmpeg-sample-00">
 
 위 페이지에 점속한 후 실행 환경의 OS에 마우스 오버하면 다운로드 링크가 나타난다
 
 ### macOS
 
-<img src="/assets/img/post/2024-06-10/ffmpeg-sample-01.png" width="580px">
+<img src="/assets/img/post/2024-06-10/ffmpeg-sample-01.png" width="580px" alt="ffmpeg-sample-01">
 
 FFmpeg의 최신 빌드 ZIP 파일을 다운로드 한다
 
