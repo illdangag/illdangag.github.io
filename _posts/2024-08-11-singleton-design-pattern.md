@@ -13,9 +13,11 @@ categories: [Design Pattern]
 tags: [Singleton]
 ---
 
-디자인 패턴중 singleton 패턴은 application에서 생성되는 객체들 특정 class에 대해서 하나의 객체만 생성 되어야 하는 경우에 사용한다
+디자인 패턴중 singleton 패턴은 application에서 생성되는 객체를 특정 class에 대해서 하나의 객체만 생성 되어야 하는 경우에 사용한다
 
-application에서 DB에 접속을 담당하는 connection pool과 같은 반복되는 작업에 대해서 무분별하게 실행되지 않도록 작업의 수행 횟수를 조절하는 경우에 주로 사용된다
+- singleton 패턴 - [https://ko.wikipedia.org/wiki/싱글턴_패턴](https://ko.wikipedia.org/wiki/%EC%8B%B1%EA%B8%80%ED%84%B4_%ED%8C%A8%ED%84%B4)
+
+예를 들어 application에서 DB에 접속을 담당하는 connection pool과 같은 반복되는 작업에 대해서 무분별하게 실행되지 않도록 작업의 수행 횟수를 조절하는 경우에 주로 사용된다
 
 ## Singleton 특징
 
@@ -116,6 +118,8 @@ singleton01 hashCode: 1907500473
 
 ### Thread safe한 singleton
 
+#### Synchronized, Volatile
+
 ```java
 public class SynchronizedSingleton {
     private static volatile SynchronizedSingleton instance;
@@ -144,17 +148,26 @@ public class SynchronizedSingleton {
 ```
 {:file='SynchronizedSingleton.java'}
 
+```text
+Singleton 객체 생성
+singleton01 hashCode: 640253301
+singleton00 hashCode: 640253301
+```
+{:file='output'}
+
 다중 thread 환경에서 thread safe하도록 수정한 `SynchronizedSingleton` 클래스이다
 
 thread safe에 만족하기 위해서 두가지 키워드를 사용하였다
 
 - volatile  
-  변수에 volatile 키워드를 추가하면 변수를 항상 메인 메모리에 할당하여 사용하겠다는 의미이다  
-  thread safe를 위해서 volatile를 사용하는 이유는 다중 thread 환경에서는 2개 이상의 CPU를 사용할 수 있는데 각 CPU의 cache 메모리가 존재하고 volatile를 사용하지 않으면 변수의 접근을 cache 메모리를 사용하게 되므로 stiatc으로 선언된 변수임에도 내용이 어긋날 가능성이 있기 때문에 volatile를 사용해서 동일한 메모리에 변수를 할당 하기 위함이다 
+  변수에 `volatile` 키워드를 추가하면 변수를 항상 메인 메모리에 할당하여 사용하겠다는 의미이다  
+  thread safe를 위해서 `volatile`를 사용하는 이유는 다중 thread 환경에서는 2개 이상의 CPU를 사용할 수 있는데 각 CPU의 cache 메모리가 존재하고 `volatile`를 사용하지 않으면 변수의 접근을 cache 메모리를 사용하게 되므로 `stiatc`으로 선언된 변수임에도 내용이 어긋날 가능성이 있기 때문에 `volatile`를 사용해서 항상 메인 메모리로 접근하게 하기 위함이다 
 
 - synchronized  
   특정 비즈니스 로직을 동시에 실행하지 못하도록 동기화한다  
   클래스 단위로 동기화 하여 다중 thread 환경에서도 해당 비즈니스 로직이 동시에 실행되지 않게 하여 instance가 동시에 여러개가 생성되지 않도록 한다
+
+#### Bill pugh 
 
 ```java
 public class InnerClassSingleton {
@@ -177,10 +190,20 @@ public class InnerClassSingleton {
 ```
 {:file='InnerClassSingleton.java'}
 
+```text
+Singleton 객체 생성
+singleton00 hashCode: 1853204767
+singleton01 hashCode: 1853204767
+```
+{:file='output'}
+
 `InnerClassSingleton` 클래스는 `SynchronizedSingleton` 클래스의 단점을 보완한 thread safe한 singleton 객체이다
 
 `SynchronizedSingleton` 클래스에서 사용한 `synchronized`는 다중 thread 환경에서 순차적인 처리를 강제하므로 병목 현상이 발생하므로 성능 하락의 문제가 발생한다
 
-static 선언된 내부 클래스를 사용한 bill pugh 방법으로 구현한 singleton 객체는 첫번째 thread가 `InnerClassSingleton.getInstance`가 호출하면 static 내부 클래스가 생성될 때 까지 JVM이 두번째 `InnerClassSingleton.getInstance` 호출을 대기시키고 첫번째 thread에 호출이 종료되면 하나의 instance가 생성되고 두번째 thread에서 호출을 첫번째 thread에서 생성된 instance를 반환하게 된다
+`static`으로 선언된 내부 클래스를 사용한 bill pugh 방법으로 구현한 singleton 객체는 첫번째 thread가 `InnerClassSingleton.getInstance`가 호출하면 `static` 내부 클래스가 생성될 때 까지 JVM이 두번째 `InnerClassSingleton.getInstance` 호출을 대기시키고 첫번째 thread에 호출이 종료되면 하나의 instance가 생성되고 두번째 thread에서 호출을 첫번째 thread에서 생성된 instance를 반환하게 된다
 
 ## 결론
+
+application 전체에서 하나의 객체만을 생성하게 하는 디자인 패턴으로 객채 생성 비용을 절약하며 특정 비즈니스 로직에 대해서 유효성을 보장할 수 있지만, 해당 조건을 만족하기 위해서는 다중 thread 환경을 고려하여 구현 하여야 한다
+

@@ -18,8 +18,8 @@ tags: [MVVM]
 - MVVM 디자인 패턴 - [https://ko.wikipedia.org/wiki/모델-뷰-뷰모델](https://ko.wikipedia.org/wiki/%EB%AA%A8%EB%8D%B8-%EB%B7%B0-%EB%B7%B0%EB%AA%A8%EB%8D%B8)
 - 프레젠테이션 로직 - [https://en.wikipedia.org/wiki/Business_logic](https://en.wikipedia.org/wiki/Business_logic)
 - 비즈니스 로직 - [https://en.wikipedia.org/wiki/Presentation_logic](https://en.wikipedia.org/wiki/Presentation_logic)
-- 
-## Model, View, ViewModel 기본 개녕
+
+## Model, View, ViewModel 특징
 
 ```mermaid
 flowchart LR
